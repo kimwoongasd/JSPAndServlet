@@ -1,0 +1,31 @@
+package com.sist.dao;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.sist.vo.GoodsVO;
+
+public class GoodsDAO {
+	// connection pool로 등록을 했기때문에 따로 driver설정 x
+	
+	public ArrayList<GoodsVO> findAll(){
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
+		
+		String sql = "select * from goods";
+		
+		try {
+			Context context = new InitialContext();
+			DataSource ds = (DataSource)context.lookup("java:/comp/env/myoracle");
+			Connection conn = ds.getConnection();
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println("goods 목록 에러 : " + e.getMessage());
+		}
+	}
+}

@@ -1,0 +1,5 @@
+function inputCheck(){
+	if(document.regFrom.id.value=="") {
+		
+	}
+}

@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		//한글 데이터도 받아오도록 인코딩 설정
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("name");
+		String studentNum = request.getParameter("studentNum");
+		String gender = request.getParameter("gender");
+		String major = request.getParameter("major");
+		
+		if (gender.equals("man")) {
+			
+		} else {
+			
+		}
+	%>
+</body>
+</html>

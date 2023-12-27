@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.item{
+		list-style: none;
+	}
+	
+	.active{
+		background: red;
+	}
+	
+	.ck{
+		background: aquamarine;
+	}
+	
+	div{
+		display: inline-block;
+	}
+	
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+	$(function(){
+		var arr;
+		
+		$(document).on("mouseenter", ".item", function(){
+			$(this).addClass("active");
+		});
+		
+		$(document).on("mouseleave", ".item", function(){
+			$(this).removeClass("active");
+		});
+		
+		$(document).on("click", ".item", function(){
+			$("li").removeClass("ck");
+			$(this).addClass("ck");
+			
+			$("#detail").empty();
+			var p1 = $("<p></p>").html("부서번호 : "+ $(this).attr("dno"));
+			var p2 = $("<p></p>").html("부서명 : "+ $(this).attr("dname"));
+			var p3 = $("<p></p>").html("부서위치 : "+ $(this).attr("dloc"));
+			
+			$("#detail").append(p1, p2, p3);
+		});
+		
+		$.ajax({
+			url:"listDeptJson",
+			success:function(data){
+				arr = data;
+				$.each(data, function(){
+					var li = $("<li></li>").html(this.dno).addClass("item");
+					li.attr("dname", this.dname).attr("dloc", this.dloc);
+					$("#list").append(li);		
+				})
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<ul id="list">
+		</ul>
+	</div>
+	<div id="detail"></div>
+</body>
+</html>
