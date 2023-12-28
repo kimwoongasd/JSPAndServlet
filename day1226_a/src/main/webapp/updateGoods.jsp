@@ -14,7 +14,7 @@
    GoodsDAO dao = new GoodsDAO();
    GoodsVO g = dao.findByNo(no);
    String path = request.getRealPath("upload");
-   System.out.print(path);
+ 
 %>
    <h2>상품수정</h2>
    <hr>
@@ -24,15 +24,9 @@
       enctype="multipart/form-data">
       <table width="80%">
          <tr>
-            <td width="20%">상품번호</td>
-            <td width="70%">
-               <input type="text" name="no" required="required" value="<%=g.getNo()%>">
-            </td>
-         </tr>
-         
-         <tr>
             <td>상품이름</td>
             <td>
+            	<input type="hidden" name="no" required="required" value="<%=g.getNo()%>">
                <input type="text" name="name" required="required" value="<%=g.getName()%>">
             </td>
          </tr>
@@ -53,7 +47,7 @@
             <td>
             	<input type="hidden" name="fname" value="<%=g.getFname() %>"> 
             	<img src="./upload/<%=g.getFname() %>" width="50" height="50">
-               <input type="file" name="uploadFile" required="required" value="<%=path+"\\"+g.getFname()%>">
+               <input type="file" name="upload" value="<%=path+"\\"+g.getFname()%>">
             </td>
          </tr>
          

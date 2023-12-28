@@ -170,6 +170,15 @@
 	      </Context>
       <Context docBase="day1226_a" path="/day1226_a" reloadable="true" source="org.eclipse.jst.jee.server:day1226_a">
       	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context>
+      <Context docBase="day1227" path="/day1227" reloadable="true" source="org.eclipse.jst.jee.server:day1227">
+      	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context><Context docBase="day1228" path="/day1228" reloadable="true" source="org.eclipse.jst.jee.server:day1228">
+      <Resource name="jdbc/myoracle" auth="Container"
+              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+              url="jdbc:oracle:thin:@localhost:1521:XE"
+              username="c##som" password="1234" maxTotal="20" maxIdle="10"
+              maxWaitMillis="-1"/>
       </Context></Host>
     </Engine>
   </Service>

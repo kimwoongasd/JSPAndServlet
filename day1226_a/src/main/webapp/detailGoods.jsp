@@ -24,7 +24,6 @@
 	int no = Integer.parseInt(request.getParameter("no"));
 	GoodsDAO dao = new GoodsDAO();
 	GoodsVO g = dao.findByNo(no);
-	System.out.print(g.getFname());
 %>
 상품번호 : <%=g.getNo() %><br>
 상품이름 : <%=g.getName() %><br>
@@ -33,5 +32,6 @@
 <img src="./upload/<%=g.getFname() %>">
 <!-- <a href="deleteGoods.jsp?no=<%=g.getNo() %>">삭제</a> -->
 <a href="#" onclick="checkDelete(<%=g.getNo() %>)">삭제</a>
+<a  href="updateGoods.jsp?no=<%=g.getNo() %>">수정</a>
 </body>
 </html>
