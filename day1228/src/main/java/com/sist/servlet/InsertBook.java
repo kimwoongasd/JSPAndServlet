@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.sist.dao.BookDAO;
 import com.sist.vo.BookVO;
 
@@ -40,13 +42,23 @@ public class InsertBook extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		int bookid = Integer.parseInt(request.getParameter("bookid"));
-		String bookname = request.getParameter("bookname");
-		int price = Integer.parseInt(request.getParameter("price"));
-		String publisher = request.getParameter("publisher");
+		String path = request.getRealPath("images");
+		
+		MultipartRequest multi = new MultipartRequest(
+				request, 
+				path,
+				1024*1024*5,
+				"UTF-8",
+				new DefaultFileRenamePolicy());
+		
+		int bookid = Integer.parseInt(multi.getParameter("bookid"));
+		String bookname = multi.getParameter("bookname");
+		int price = Integer.parseInt(multi.getParameter("price"));
+		String publisher = multi.getParameter("publisher");
+		String fname = multi.getOriginalFileName("fname");
 		
 		BookDAO dao = new BookDAO();
-		BookVO b = new BookVO(bookid, bookname, price, publisher);
+		BookVO b = new BookVO(bookid, bookname, price, publisher, fname);
 		int re = dao.insert(b);
 		
 		String viewPage = "insertBookOK.jsp";
@@ -54,6 +66,7 @@ public class InsertBook extends HttpServlet {
 			viewPage = "error.jsp";
 			request.setAttribute("msg", "도서 등록에 실패");
 		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

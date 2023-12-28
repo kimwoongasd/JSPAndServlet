@@ -27,6 +27,8 @@
 도서명 : ${b.bookname }<br>
 가격 : ${b.price }<br>
 출판사 : ${b.publisher }<br>
+이미지 : <img src="./images/${b.fname }"/>
+<br>
 <a href="listbook.do">도서목록</a>
 <a href="updateBook.do?bookid=${b.bookid }">수정하기</a>
 <a href="#" id="delete" bookid="${b.bookid }">삭제하기</a>

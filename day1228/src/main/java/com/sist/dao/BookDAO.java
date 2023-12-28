@@ -26,7 +26,8 @@ public class BookDAO {
 						res.getInt(1),
 						res.getString(2),
 						res.getInt(3),
-						res.getString(4)
+						res.getString(4),
+						res.getString(5)
 						));
 			}
 			
@@ -42,7 +43,7 @@ public class BookDAO {
 	// 등록
 	public int insert(BookVO b) {
 		int re = -1;
-		String sql = "insert into book100 values(?,?,?,?)";
+		String sql = "insert into book100 values(?,?,?,?,?)";
 		
 		try {
 			Connection conn = ConnectionProvider.getConnetction();
@@ -51,6 +52,7 @@ public class BookDAO {
 			pstmt.setString(2, b.getBookname());
 			pstmt.setInt(3, b.getPrice());
 			pstmt.setString(4, b.getPublisher());
+			pstmt.setString(5, b.getFname());
 			
 			re = pstmt.executeUpdate();
 			ConnectionProvider.close(conn, pstmt);
@@ -65,7 +67,7 @@ public class BookDAO {
 	// 수정
 	public int update(BookVO b) {
 		int re = -1;
-		String sql = "update book100 set bookname=?, price=?, publisher=? where bookid=?";
+		String sql = "update book100 set bookname=?, price=?, publisher=?, fname=? where bookid=?";
 		
 		try {
 			Connection conn = ConnectionProvider.getConnetction();
@@ -73,7 +75,8 @@ public class BookDAO {
 			pstmt.setString(1, b.getBookname());
 			pstmt.setInt(2, b.getPrice());
 			pstmt.setString(3, b.getPublisher());
-			pstmt.setInt(4, b.getBookid());
+			pstmt.setString(4, b.getFname());
+			pstmt.setInt(5, b.getBookid());
 			
 			re = pstmt.executeUpdate();
 			
@@ -124,6 +127,7 @@ public class BookDAO {
 				g.setBookname(res.getString(2));
 				g.setPrice(res.getInt(3));
 				g.setPublisher(res.getString(4));
+				g.setFname(res.getString(5));
 			}
 			
 			ConnectionProvider.close(conn, pstmt, res);

@@ -68,7 +68,7 @@ public class UpdateBoard extends HttpServlet {
 		b.setPwd(multi.getParameter("pwd"));
 		b.setContent(multi.getParameter("content"));
 		b.setFname(oldFname);
-		if (oldFname != null) {
+		if (fname != null) {
 			b.setFname(fname);
 		}
 		

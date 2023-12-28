@@ -5,6 +5,19 @@ public class BookVO {
 	private String bookname;
 	private int price;
 	private String publisher;
+	private String fname;
+	public BookVO(int bookid, String bookname, int price, String publisher, String fname) {
+		super();
+		this.bookid = bookid;
+		this.bookname = bookname;
+		this.price = price;
+		this.publisher = publisher;
+		this.fname = fname;
+	}
+	public BookVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getBookid() {
 		return bookid;
 	}
@@ -29,16 +42,11 @@ public class BookVO {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	public BookVO(int bookid, String bookname, int price, String publisher) {
-		super();
-		this.bookid = bookid;
-		this.bookname = bookname;
-		this.price = price;
-		this.publisher = publisher;
+	public String getFname() {
+		return fname;
 	}
-	public BookVO() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
 	
 	
