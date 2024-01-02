@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="InsertBoard"></a>
+<a href="insertBoard.do"></a>
 	<h2>게시물 목록</h2>
 	<hr>
 	<table border="1" width="80%">
@@ -35,11 +35,11 @@
 		<c:forEach var="b" items="${list }">
 			<tr>
 				<td>${b.no }</td>
-				<td><a href="DetailBoard?no=${b.no}">${b.title }</a></td>
+				<td><a href="detailBoard.do?no=${b.no }">${b.title }</a></td>
 				<td>${b.writer }</td>
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="InsertBoard">추가하기</a>
+	<a href="insertBoard.do">추가하기</a>
 </body>
 </html>

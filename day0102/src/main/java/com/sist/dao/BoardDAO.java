@@ -11,15 +11,15 @@ import com.sist.vo.BoardVO;
 
 public class BoardDAO {
 	
-	public int delete(BoardVO b) {
+	public int delete(int no, String pwd) {
 		int re = -1;
 		String sql = "delete from board where no=? and pwd=?";
 		
 		try {
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, b.getNo());
-			pstmt.setString(2, b.getPwd());
+			pstmt.setInt(1, no);
+			pstmt.setString(2, pwd);
 			
 			re = pstmt.executeUpdate();
 			

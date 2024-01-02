@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>게시물 등록</h2>
-	<form action="InsertBoard" method="post" enctype="multipart/form-data">
+	<form action="insertBoardOK.do" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td>제목</td>
