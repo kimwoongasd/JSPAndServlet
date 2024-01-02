@@ -13,8 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sist.action.DeleteBoardAction;
+import com.sist.action.DeleteBoardOKAction;
+import com.sist.action.DetailBoardAction;
+import com.sist.action.InsertBoardAction;
+import com.sist.action.InsertBoardOkAction;
+import com.sist.action.ListBoardAction;
+import com.sist.action.SistAction;
+import com.sist.action.UpdateBoardAction;
+import com.sist.action.UpdateBoardOKAction;
 import com.sist.dao.BoardDAO;
 import com.sist.vo.BoardVO;
+
+import oracle.security.o3logon.a;
 
 /**
  * Servlet implementation class sistController
@@ -39,98 +50,32 @@ public class SistController extends HttpServlet {
 		String cmd = uri.substring(uri.lastIndexOf("/") + 1);
 		String viewPage = "";
 		
+		SistAction action;
 		BoardDAO dao = new BoardDAO();
 		if (cmd.equals("listBoard.do")) {
-			viewPage = "listBoard.jsp";
-			request.setAttribute("list", dao.findAll());
+			action = new ListBoardAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("insertBoard.do")) {
-			viewPage = "insertBoard.jsp";
+			action = new InsertBoardAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("insertBoardOK.do")) {
-			viewPage = "insertBoardOK.jsp";
-			String path = request.getRealPath("data");
-			MultipartRequest multi = new MultipartRequest(
-					request,
-					path,
-					1024*1024*5,
-					"UTF-8",
-					new DefaultFileRenamePolicy());
-			
-			BoardVO b = new BoardVO();
-			b.setNo(dao.getNextNo());
-			b.setTitle(multi.getParameter("title"));
-			b.setWriter(multi.getParameter("writer"));
-			b.setPwd(multi.getParameter("pwd"));
-			b.setContent(multi.getParameter("content"));
-			b.setFname(multi.getOriginalFileName("upload"));
-			b.setIp(request.getRemoteAddr());
-			
-			int re = dao.insert(b);
-			if (re != 1) {
-				viewPage = "error.jsp";
-				request.setAttribute("msg", "게시물 등록 실패");
-			}
+			action = new InsertBoardOkAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("updateBoard.do")) {
-			int no = Integer.parseInt(request.getParameter("no"));
-			BoardVO b = dao.detail(no);
-			request.setAttribute("b", b);
-			viewPage = "updateBoard.jsp";
+			action = new UpdateBoardAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("updateBoardOK.do")) {
-			String path = request.getRealPath("data");
-			MultipartRequest multi = new MultipartRequest(
-					request,
-					path,
-					1024*1024*5,
-					"UTF-8",
-					new DefaultFileRenamePolicy());
-			
-			BoardVO b = new BoardVO();
-			b.setNo(Integer.parseInt(multi.getParameter("no")));
-			b.setTitle(multi.getParameter("title"));
-			b.setWriter(multi.getParameter("writer"));
-			b.setPwd(multi.getParameter("pwd"));
-			b.setContent(multi.getParameter("content"));
-			String oldFname = multi.getParameter("fname");
-			String fname = multi.getOriginalFileName("upload");
-			b.setFname(fname);
-			if (fname == null) {
-				b.setFname(oldFname);
-			}
-			b.setIp(request.getRemoteAddr());
-			viewPage = "updateBoardOK.jsp";
-			int re = dao.update(b);
-			if (re == 1) {
-				if (fname != null) {
-					File file = new File(path+"/"+oldFname);
-					file.delete();
-				}
-			} else {
-				viewPage = "error.jsp";
-				request.setAttribute("msg", "수정 실패");
-			}
+			action = new UpdateBoardOKAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("deleteBoard.do")) {
-			int no = Integer.parseInt(request.getParameter("no"));
-			request.setAttribute("no", no);
-			viewPage = "deleteBoard.jsp";
-			
+			action = new DeleteBoardAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("deleteBoardOK.do")) {
-			viewPage = "deleteBoardOK.jsp";
-			String path = request.getRealPath("data");
-			int no = Integer.parseInt(request.getParameter("no"));
-			String pwd = request.getParameter("pwd");
-			String fname = dao.detail(no).getFname();
-			int re = dao.delete(no, pwd);
-			if (re == 1) {
-				File file = new File(path+"/"+fname);
-				file.delete();
-			} else {
-				viewPage = "error.jsp";
-				request.setAttribute("msg", "삭제실패");
-			}
+			action = new DeleteBoardOKAction();
+			viewPage = action.pro(request, response);
 		} else if (cmd.equals("detailBoard.do")) {
-			int no = Integer.parseInt(request.getParameter("no"));
-			BoardVO b = dao.detail(no);
-			request.setAttribute("b", b);
-			viewPage = "detailBoard.jsp";
+			action = new DetailBoardAction();
+			viewPage = action.pro(request, response);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
