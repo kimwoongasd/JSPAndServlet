@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="// TODO: handle exception"/>
 			<item value="Connector"/>
 			<item value="Conn"/>
 		</list>

@@ -185,6 +185,8 @@
       <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
       </Context><Context docBase="day0102_d" path="/day0102_d" reloadable="true" source="org.eclipse.jst.jee.server:day0102_d">
       <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context><Context docBase="day0103" path="/day0103" reloadable="true" source="org.eclipse.jst.jee.server:day0103">
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
       </Context></Host>
     </Engine>
   </Service>

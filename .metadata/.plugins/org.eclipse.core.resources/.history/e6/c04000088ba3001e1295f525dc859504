@@ -1,7 +1,0 @@
-function inputCheck(){
-	if(document.regFrom.id.value=="") {
-		// regFrom태그의 id가 id인 값이 빈값이라면
-		alert("아이디를 입력해 주세요");
-		document.regFrom.id.focus();
-	}
-}
