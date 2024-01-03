@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.action.DeleteBoardAction;
 import com.sist.action.DeleteBoardOKAction;
@@ -37,16 +38,26 @@ public class SistController extends HttpServlet {
 	// 서블릿이 
     @Override
 	public void init(ServletConfig config) throws ServletException {
-    	// ServletConfig config를 통해서 실경로를 알 수 있다
 		//super.init(config);
     	
     	// map에 서비스명을 key로하고 일처리 담당 객체를 value로 하여 데이터 등록
     	map = new HashMap<String, SistAction>();
     	try {
+    		// 사용자의 요청명과 일처리를 클래스이름을 설정한 설정파일(sist.properties)이 있는
     		// WEB-INF폴더의 실경로
+    		// init메소드에는 request가 없어 ServletConfig config를 통해서 실경로를 알 수 있다
 			String path = config.getServletContext().getRealPath("WEB-INF");
+			
+			// sist.properties의 파일의 내용을 메모리로 읽어들이기 위해 객체를 생성
 			FileReader fr = new FileReader(path+"/sist.properties");
-			Properties prop = new Properties(); // key와 value로 분리
+			
+			// sist.properties의 파일의 내용을 key와 value로 분리하기 위해
+			// properties 객체를 생성
+			Properties prop = new Properties();
+			
+			// sist.properties파일의 스트림인 fr를
+			// Properties 객체인 prop에 담는다
+			// 이렇게 하면 key와 value를 분리하게 된다
 			prop.load(fr);
 			
 			// set형태로 key값을 가져온다
@@ -64,7 +75,7 @@ public class SistController extends HttpServlet {
 				map.put(key, (SistAction)Class.forName(clsName).newInstance());
 			}
 			
-			
+		fr.close();
 		} catch (Exception e) {
 			System.out.println("파일읽기 실패 : " + e.getMessage());
 		}
@@ -86,7 +97,7 @@ public class SistController extends HttpServlet {
 		String uri = request.getRequestURI();
 		
 		// uri로 부터 서비스명을 추출하여 cmd에 저장
-		String cmd = uri.substring(uri.lastIndexOf("/") + 1);
+		String cmd = uri.substring(uri.indexOf("/", 1)+1);
 		
 		// 이동할 jsp파일명을 저장하기 위한 변수
 		String viewPage = "";
@@ -100,7 +111,7 @@ public class SistController extends HttpServlet {
 		
 		// 일처리 담당객체를 통해서 일처리를 위한 메소드를 호출
 		viewPage = action.pro(request, response);
-		
+
 		// jsp로 이동시키기 위한 디스패처 객체를 생성
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
@@ -114,6 +125,7 @@ public class SistController extends HttpServlet {
 		// 사용자가 get방식으로 요청하거나 post방식으로 효청하거나
 		// 동일한 처리를 위하여 post방식으로 요청하면 goGet을 호출
 		// 모든 일처리는 doGet에 작성
+		request.setCharacterEncoding("UTF-8");
 		doGet(request, response);
 	}
 

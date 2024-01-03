@@ -20,4 +20,14 @@
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
+  <filter>
+  	<filter-name>loginFilter</filter-name>
+  	<filter-class>com.sist.filter.LoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>loginFilter</filter-name>
+  	<url-pattern>/member/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>
