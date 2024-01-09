@@ -1,4 +1,6 @@
 INDEX VERSION 1.134
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1256355209.index
+\day0105\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3676360644.index
 \day0103_a\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3667785825.index
@@ -9,12 +11,18 @@ C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1558332746.inde
 \day0102_d\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4225167938.index
 \day0102_b\src\main\java
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3757710808.index
+\day0109\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4195320874.index
 \day1221\src\main\java
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1491278035.index
+\day0105\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2612592887.index
 \day1228\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3638700282.index
 \day1222_b\src\main\java
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1482479259.index
+\day0108\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3990274689.index
 \day0103\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2823596486.index
@@ -29,14 +37,16 @@ C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2087729409.inde
 \day0102_c\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2142120350.index
 \day0103_a\src\main\java
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3360833409.index
+\day0105_goods\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1563321069.index
 \day1222_b\src\main\java
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3443834570.index
+\day0104\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1435655705.index
 \day0102\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1564160802.index
 \day1227\src\main\java
-C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3443834570.index
-\day0104\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2845171630.index
 \day1222\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1044984511.index
@@ -49,6 +59,8 @@ C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\673719573.index
 \day0102_d\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4076455336.index
 \day1222\src\main\java
+C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3924423534.index
+\day0105_goods\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3889968267.index
 \day1226_a\src\main\java
 C:\jspTest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4028222999.index

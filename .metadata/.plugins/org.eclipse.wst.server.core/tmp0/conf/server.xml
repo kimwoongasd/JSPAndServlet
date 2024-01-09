@@ -191,6 +191,15 @@
       <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
       </Context><Context docBase="C:\jspTest\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\day0104" path="/day0104" reloadable="true" source="org.eclipse.jst.jee.server:day0104">
       <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context><Context docBase="C:\jspTest\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\day0105" path="/day0105" reloadable="true" source="org.eclipse.jst.jee.server:day0105">
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context><Context docBase="C:\jspTest\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\day0105_goods" path="/day0105_goods" reloadable="true" source="org.eclipse.jst.jee.server:day0105_goods">
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context>
+      <Context docBase="C:\jspTest\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\day0108" path="/day0108" reloadable="true" source="org.eclipse.jst.jee.server:day0108">
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
+      </Context><Context docBase="C:\jspTest\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\day0109" path="/day0109" reloadable="true" source="org.eclipse.jst.jee.server:day0109">
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="myoracle" password="1234" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="c##som"/>
       </Context></Host>
     </Engine>
   </Service>
